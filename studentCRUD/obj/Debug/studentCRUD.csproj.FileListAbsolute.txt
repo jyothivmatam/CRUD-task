@@ -1,0 +1,8 @@
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\bin\Debug\studentCRUD.exe.config
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\bin\Debug\studentCRUD.exe
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\bin\Debug\studentCRUD.pdb
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\obj\Debug\studentCRUD.csproj.AssemblyReference.cache
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\obj\Debug\studentCRUD.csproj.SuggestedBindingRedirects.cache
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\obj\Debug\studentCRUD.csproj.CoreCompileInputs.cache
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\obj\Debug\studentCRUD.exe
+C:\Users\91938\source\repos\studentCRUD\studentCRUD\obj\Debug\studentCRUD.pdb
