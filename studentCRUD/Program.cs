@@ -7,80 +7,56 @@ using System.Data.SqlClient;
 
 namespace studentCRUD
 {
-    internal class Program
+     class Program
     {
         static void Main(string[] args)
         {
-            SqlConnection sqlConnection;
-            string connectionString = @"Data Source = MOBACK; Initial Catalog = studentCRUD; Integrated Security = True";
+            StudentCrud sCrud = new StudentCrud();
+            sCrud.Create("sahana", "female", "sahana@gmail.com");
+            sCrud.DisplayAll();
+            sCrud.Display();
+            sCrud.DisplayAll();
+            sCrud.Update(3, "vinu", "female", "vinu@gmail.com");
+            sCrud.Delete(1);
 
-            try
-            {
-                sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
-                Console.WriteLine("Connection established Successfully");
-
-                //Insert => I
-               
-                Console.WriteLine("Name : ");
-                string name = Console.ReadLine();
-                Console.WriteLine("Gender : ");
-                string gender = Console.ReadLine();
-                Console.WriteLine("Email : ");
-                string email = Console.ReadLine();
-
-                string insertQuery = "insert into Student_record(name,gender,email) values ('" + name + "','" + gender + "','" + email + "')";
-                SqlCommand insertCommand = new SqlCommand(insertQuery, sqlConnection);
-                insertCommand.ExecuteNonQuery();
-                Console.WriteLine("Data inserted");
-
-                // Retrieve => R
-
-                string displayQuery = "select * from Student_record";
-                SqlCommand displayCommand = new SqlCommand(displayQuery, sqlConnection);
-                SqlDataReader dataReader = displayCommand.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Console.WriteLine("Id: - " + dataReader.GetValue(0).ToString());
-                    Console.WriteLine("Name: - " + dataReader.GetValue(1).ToString());
-                    Console.WriteLine("Gender: - " + dataReader.GetValue(2).ToString());
-
-                    Console.WriteLine("Email: - " + dataReader.GetValue(3).ToString());
-                }
-                dataReader.Close();
-
-                // Update => U
-                int d_id;
-                string d_name;
-                Console.WriteLine("enter the id that you would like to update");
-                d_id = int.Parse(Console.ReadLine());
-                Console.WriteLine("enter the name of the user to update");
-                d_name = Console.ReadLine();
-
-                string updateQuery = "UPDATE Student_record SET name = " + d_name + " WHERE id = " +d_id + "";
-                SqlCommand updateCommand = new SqlCommand(updateQuery, sqlConnection);
-                updateCommand.ExecuteNonQuery();
-                Console.WriteLine("Data updated Successfully!");
-
-                //Delete => D
-
-                int u_id;
-                Console.WriteLine("Enter the id of the Student_record thats is to be deleted");
-                u_id = int.Parse(Console.ReadLine());
-                string deleteQuery = "DELETE FROM Student_record WHERE id =" + u_id;
-                SqlCommand deleteCommand = new SqlCommand(deleteQuery, sqlConnection);
-                deleteCommand.ExecuteNonQuery();
-                Console.WriteLine("Deleted Succesfully!");
-                sqlConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //Console.WriteLine("Employee Management Application");
+            //Console.WriteLine("Select Operation:");
+            //Console.WriteLine("1 create Employee Details");
+            //Console.WriteLine("2 Display All Employee");
+            //Console.WriteLine("3 Display Employee you want to see");
+            //Console.WriteLine("4 update Employees");
+            //Console.WriteLine("5 Delete Employee Detail");
+            //Console.WriteLine("Press any key to exit");
+            //var operation = Console.ReadLine();
+            //while (true)
+            //{
+            //    switch (operation)
+            //    {
+            //        case "1":
+            //            sCrud.Create();
+            //            break;
+            //        case "2":
+            //            sCrud.DisplayAll();
+            //            break;
+            //        case "3":
+            //            sCrud.Display();
+            //            break;
+            //        case "4":
+            //            sCrud.Update();
+            //            break;
+            //        case "5":
+            //            sCrud.Delete();
+            //            break;
+            //        case "x":
+            //            return;
+            //        default:
+            //            Console.WriteLine("Select valid Operation");
+            //            break;
+            //    }
+            //    Console.Write("\nSelect Operation:");
+            //    operation = Console.ReadLine();
+            //}
         }
-
-
-
-        
     }
 }
+
